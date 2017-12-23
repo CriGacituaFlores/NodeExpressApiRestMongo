@@ -4,11 +4,11 @@
 //sudo npm i -S mongoose
 const mongoose = require('mongoose')
 const app = require('./app')
-const port = process.env.PORT || 3000
+const config = require('./config')
 
 //sudo npm i -D nodemon
 
-mongoose.connect('mongodb://localhost:27017/shopRest', (err, res) => {
+mongoose.connect(config.db, (err, res) => {
     if (err){
         return console.log(`Error al conectar a la bd: ${err}`)
     }
@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/shopRest', (err, res) => {
     console.log('Conexion establecida')
 
     //Puerto a escuchar
-    app.listen(port, () => {
+    app.listen(config.port, () => {
         console.log('API REST CORRIENDO HTTP');
     })
 })

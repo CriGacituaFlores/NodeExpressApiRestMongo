@@ -7,17 +7,11 @@ const express = require('express')
 //npm i -S body-parser
 const bodyParser = require('body-parser')
 const app = express()
-const productCtrl = require('./controllers/product')
+const api = require('./routes/index')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use('/api', api)
 
-//Product
-app.get('/api/product', productCtrl.getProducts)
-app.get('/api/product/:productId', productCtrl.getProduct)
-app.post('/api/product', productCtrl.saveProduct)
-app.put('/api/product/:productId', productCtrl.updateProduct)
-app.delete('/api/product/:productId', productCtrl.deleteProduct)
-//End Product
 
 module.exports = app
