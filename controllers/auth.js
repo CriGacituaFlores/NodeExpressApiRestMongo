@@ -7,8 +7,7 @@ const service = require('../services/index')
 function signUp (req, res) {
     const user = new User({
         email: req.body.email,
-        displayName: req.body.displayName,
-
+        displayName: req.body.displayName
     })
 
     user.save((err) => {
