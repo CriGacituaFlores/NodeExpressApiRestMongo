@@ -1,0 +1,4 @@
+heroku login
+------credentials-------
+heroku git:remote -a api-rest-node-js-mongo
+git commmit -am "preparing to heroku"
